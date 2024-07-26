@@ -26,9 +26,9 @@ public class MemberDto {
     @Override
     public String toString() {
         return "MemberDto{" +
-                "name=" + name + '\'' +
-                ", email=" + email + '\'' +
-                ", organization=" + organization + '\'' +
+                "name=" + name + "\n" +
+                ", email=" + email + "\n" +
+                ", organization=" + organization + "\n" +
                 '}';
     }
 }
