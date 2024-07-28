@@ -1,5 +1,6 @@
 package yerin.crud.Controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -14,6 +15,7 @@ public class PostController {
     }
 
     // http://localhost:8080/api/v1/post-api/member
+    @Operation(summary = "post body api", description = "map 객체로 정보 불러오기")
     @PostMapping(value = "/member")
     public String postMember(@RequestBody Map<String, Object> postData) {
         StringBuilder sb = new StringBuilder();
