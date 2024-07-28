@@ -1,6 +1,8 @@
 package yerin.crud.Controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -24,6 +26,11 @@ public class PostController {
             @ApiResponse(responseCode = "200", description = "요청에 성공하였습니다.", content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "400", description = "이미 가입된 계정입니다.", content = @Content(mediaType = "application/json"))
     })
+    @Parameters({
+            @Parameter(name = "name", description = "이름", example = "Orange"),
+            @Parameter(name = "email", description = "이메일", example = "Orange@naver.com"),
+            @Parameter(name = "organization", description = "소속 기관", example = "숙멋")
+    })
     public String postMember(@RequestBody Map<String, Object> postData) {
         StringBuilder sb = new StringBuilder();
 
@@ -33,7 +40,7 @@ public class PostController {
         return sb.toString();
     }
 
-    // http://localhost:8080/api/v1/post-api/member2
+    // http://localhost:8080/api/v1/post-api/member2$
     @PostMapping(value = "/member2")
     public String postMemberDto(@RequestBody MemberDto memberDto) {
         return memberDto.toString();
