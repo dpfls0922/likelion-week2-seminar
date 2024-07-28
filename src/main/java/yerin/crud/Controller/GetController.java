@@ -1,11 +1,14 @@
 package yerin.crud.Controller;
 
 import java.util.Map;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 import yerin.crud.Dto.MemberDto;
 
 @RestController
 @RequestMapping("/api/v1/get-api")
+@Tag(name = "Get 컨트롤러", description = "Get 메서드를 작성하는 방법들")
 public class GetController {
 
     // http://localhost:8080/api/v1/get-api/hello
@@ -55,7 +58,8 @@ public class GetController {
     // http://localhost:8080/api/v1/get-api/request3?name=value1&email=value2&organization=value3
     @GetMapping(value = "/request3")
     public String getRequestParam3(MemberDto memberDto) {
-        // return memberDto.getName() + " " + memberDto.getEmail() + " " + memberDto.getOrganization();
+        // return memberDto.getName() + " " + memberDto.getEmail() + " "
+        // + memberDto.getOrganization();
         return memberDto.toString();
     }
 }
